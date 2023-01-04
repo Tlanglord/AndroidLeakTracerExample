@@ -1,3 +1,5 @@
+fork from : https://github.com/hjm1fb/AndroidLeakTracerExample
+
 # AndroidLeakTracerExample
 Android Native  Memory Leak Detect Example of Leak Tracer 
 

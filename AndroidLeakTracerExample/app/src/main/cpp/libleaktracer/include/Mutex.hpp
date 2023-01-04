@@ -28,35 +28,35 @@
 namespace leaktracer {
 
 // forward declaration
-class MutexLock;
+    class MutexLock;
 
 /**
  * Wrapper to "pthread_mutex_t", should be used with
  * <b>MutexLock</b> class, which insures that the mutex is
  * released even in case of exception.
  */
-class Mutex { // not intended to be overridden, non-virtual destructor
-public:
-	inline Mutex() {
+    class Mutex { // not intended to be overridden, non-virtual destructor
+    public:
+        inline Mutex() {
 //		TRACE((stderr, "LeakTracer: Mutex()\n"));
-		pthread_mutexattr_t attr;
-		pthread_mutexattr_init(&attr);
+            pthread_mutexattr_t attr;
+            pthread_mutexattr_init(&attr);
 //		pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
-		pthread_mutex_init(&__mutex, &attr);
-		pthread_mutexattr_destroy(&attr);
-	}
+            pthread_mutex_init(&__mutex, &attr);
+            pthread_mutexattr_destroy(&attr);
+        }
 
-	// not intended to be overridden, non-virtual destructor
-	inline ~Mutex() {
+        // not intended to be overridden, non-virtual destructor
+        inline ~Mutex() {
 //		TRACE((stderr, "LeakTracer: ~Mutex()\n"));
-		pthread_mutex_destroy(&__mutex);
-	}
+            pthread_mutex_destroy(&__mutex);
+        }
 
-	pthread_mutex_t	__mutex;
+        pthread_mutex_t __mutex;
 
-protected:
-	friend class MutexLock;
-};
+    protected:
+        friend class MutexLock;
+    };
 
 }  // end namespace
 

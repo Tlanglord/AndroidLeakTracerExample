@@ -22,7 +22,7 @@ void leaktracer_stopMonitoringAllocations(void);
 void leaktracer_stopAllMonitoring(void);
 
 /** writes report with all memory leaks */
-void leaktracer_writeLeaksToFile(const char* reportFileName);
+void leaktracer_writeLeaksToFile(const char *reportFileName);
 
 #ifdef __cplusplus
 }
